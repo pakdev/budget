@@ -1,37 +1,56 @@
-lazy val root = project
-  .in(file("."))
-  .enablePlugins(ScalaJSPlugin)
-  .settings(
-    inThisBuild(List(
-      organization := "com.petesburgh",
-      version      := "0.1-SNAPSHOT",
-      scalaVersion := "2.11.12"
-    )),
-    name := "budget",
-    resolvers ++= Seq(
-      Resolver.sonatypeRepo("public")
-    ),
-    libraryDependencies ++= Seq(
-      "com.mscharley" %%% "scalajs-electron" % "0.1.2",
-      "org.scalatest" %%% "scalatest"        % "3.0.5" % "test"
-    ),
-    scalaJSUseMainModuleInitializer := true
-  )
+import org.scalajs.core.tools.linker.backend.ModuleKind.CommonJSModule
 
+enablePlugins(ScalaJSPlugin)
+enablePlugins(ScalaJSBundlerPlugin)
 
-// Automatically generate index-dev.html which uses *-fastopt.js
-resourceGenerators in Compile += Def.task {
-  val source = (resourceDirectory in Compile).value / "index.html"
-  val target = (resourceManaged in Compile).value / "index-dev.html"
+name := "budget"
+organization := "com.petesburgh"
+version := "0.1"
 
-  val fullFileName = (artifactPath in (Compile, fullOptJS)).value.getName
-  val fastFileName = (artifactPath in (Compile, fastOptJS)).value.getName
+scalaVersion := "2.12.8"
 
-  IO.writeLines(target,
-    IO.readLines(source).map {
-      line => line.replace(fullFileName, fastFileName)
-    }
-  )
+// Compiler flags
+scalacOptions ++= Seq(
+  "-P:scalajs:sjsDefinedByDefault",
+  "-feature",
+  "-Ypartial-unification",
+  "-Ywarn-value-discard"
+)
 
-  Seq(target)
-}.taskValue
+// Add repositories to pull from
+resolvers ++= Seq(
+  Resolver.sonatypeRepo("releases")
+)
+
+// Libraries
+libraryDependencies ++= Seq(
+  "io.scalajs" %%% "nodejs" % "0.4.2",
+)
+
+// Javascript dependencies e.g.
+// npmDependencies in Compile += "snabbdom" -> "0.5.3"
+
+// Resources are in web directory
+resourceDirectory := baseDirectory.value / "web"
+
+// Write files to to web/js
+artifactPath in (Compile, fastOptJS) := resourceDirectory.value / "js" / "budget-fastopt.js"
+artifactPath in (Compile, fullOptJS) := resourceDirectory.value / "js" / "budget-fullopt.js"
+artifactPath in (Compile, packageJSDependencies) := resourceDirectory.value / "js" / "budget-jsdeps.js"
+
+// Put all js dependencies into a single output file
+skip in packageJSDependencies := false
+
+// Call the `main` method after the js is loaded
+scalaJSUseMainModuleInitializer := true
+
+// Do not emit source maps in production
+emitSourceMaps in fullOptJS := false
+
+// Import from CommonJS modules
+scalaJSModuleKind := CommonJSModule
+
+// Produce both application and library(s)
+webpackBundlingMode := BundlingMode.LibraryAndApplication()
+
+webpackConfigFile := Some(baseDirectory.value / "src" / "main" / "resources" / "no-electron.webpack.config.js")

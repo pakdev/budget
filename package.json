@@ -1,0 +1,23 @@
+{
+  "name": "budget",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./web/js/budget-fastopt.js",
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "^4.0.6"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pakdev/budget.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pakdev/budget/issues"
+  },
+  "homepage": "https://github.com/pakdev/budget#readme"
+}
