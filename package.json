@@ -1,23 +1,22 @@
 {
-  "name": "budget",
+  "name": "ChangeOverTime",
   "version": "1.0.0",
-  "description": "",
-  "main": "./web/js/budget-fastopt.js",
-  "dependencies": {},
-  "devDependencies": {
-    "electron": "^4.0.6"
-  },
+  "description": "A way to view your money, over time",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pakdev/budget.git"
+    "url": "https://github.com/pakdev/change-over-time.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/pakdev/budget/issues"
+    "url": "https://github.com/pakdev/change-over-time/issues"
   },
-  "homepage": "https://github.com/pakdev/budget#readme"
+  "homepage": "https://github.com/pakdev/change-over-time/blob/prototype/README.md",
+  "devDependencies": {
+    "electron": "^4.0.6"
+  }
 }
