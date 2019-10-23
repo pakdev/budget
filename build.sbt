@@ -73,7 +73,9 @@ lazy val mainProcess = project.in(file("./mainprocess"))
   .settings(commonSettings)
   .settings(
     resolvers += Resolver.sonatypeRepo("releases"),
-    libraryDependencies ++= Seq("io.scalajs" %%% "nodejs" % "0.4.2"),
+    libraryDependencies ++= Seq(
+      "io.scalajs" %%% "nodejs" % "0.4.2"
+    ),
     scalaJSUseMainModuleInitializer := true, 
     scalaJSLinkerConfig ~= { _.withModuleKind(ModuleKind.CommonJSModule) },
     copyMainProcess := {

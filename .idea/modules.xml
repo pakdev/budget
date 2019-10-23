@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/budget.iml" filepath="$PROJECT_DIR$/.idea/modules/budget.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/budget-build.iml" filepath="$PROJECT_DIR$/.idea/modules/budget-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ChangeOverTime.iml" filepath="$PROJECT_DIR$/.idea/modules/ChangeOverTime.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ChangeOverTime-build.iml" filepath="$PROJECT_DIR$/.idea/modules/ChangeOverTime-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mainProcess.iml" filepath="$PROJECT_DIR$/.idea/modules/mainProcess.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/renderProcess.iml" filepath="$PROJECT_DIR$/.idea/modules/renderProcess.iml" />
     </modules>
   </component>
 </project>

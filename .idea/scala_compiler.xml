@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ScalaCompilerConfiguration">
-    <profile name="sbt 1" modules="budget_8533" />
-    <profile name="sbt 2" modules="com_petesburgh_budget,budget">
+    <profile name="sbt 1" modules="ChangeOverTime,budget_8533" />
+    <profile name="sbt 2" modules="budget,com_petesburgh_budget">
       <option name="featureWarnings" value="true" />
       <parameters>
         <parameter value="-P:scalajs:sjsDefinedByDefault" />
@@ -19,6 +19,23 @@
       <option name="featureWarnings" value="true" />
       <plugins>
         <plugin path="$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-compiler_2.11.11/jars/scalajs-compiler_2.11.11-0.6.26.jar" />
+      </plugins>
+    </profile>
+    <profile name="sbt 4" modules="mainProcess">
+      <parameters>
+        <parameter value="-P:scalajs:sjsDefinedByDefault" />
+      </parameters>
+      <plugins>
+        <plugin path="$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-compiler_2.12.8/jars/scalajs-compiler_2.12.8-0.6.26.jar" />
+      </plugins>
+    </profile>
+    <profile name="sbt 5" modules="renderProcess">
+      <parameters>
+        <parameter value="-P:scalajs:sjsDefinedByDefault" />
+      </parameters>
+      <plugins>
+        <plugin path="$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-compiler_2.12.8/jars/scalajs-compiler_2.12.8-0.6.26.jar" />
+        <plugin path="$USER_HOME$/.ivy2/cache/org.scalamacros/paradise_2.12.8/jars/paradise_2.12.8-2.1.0.jar" />
       </plugins>
     </profile>
   </component>
