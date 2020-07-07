@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/pakdev/change-over-time/blob/prototype/README.md",
   "devDependencies": {
-    "electron": "^4.0.6"
+    "electron": "^7.2.4"
   },
   "dependencies": {
     "bulma": "^0.7.4"
